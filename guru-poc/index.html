@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India RealEstate Hub | Premium Properties</title>
+    <meta name="description" content="Find the best luxury flats, independent houses, and premium plots across top Indian cities.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="ri-building-4-fill"></i> India RealEstate Hub
+            </a>
+            <div class="nav-links">
+                <a href="#" class="active">Home</a>
+                <a href="#properties">Buy</a>
+                <a href="#" data-filter="Flat" class="filter-link">Flats</a>
+                <a href="#" data-filter="House" class="filter-link">Houses</a>
+                <a href="#" data-filter="Plot" class="filter-link">Plots</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="ri-menu-line"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Discover Your Dream Home in India</h1>
+            <p>Explore premium flats, luxurious houses, and investment plots in top cities.</p>
+            
+            <div class="search-box">
+                <div class="search-field">
+                    <label>Location</label>
+                    <select id="location-select">
+                        <option value="All">All Cities</option>
+                        <option value="Mumbai">Mumbai</option>
+                        <option value="Bengaluru">Bengaluru</option>
+                        <option value="Hyderabad">Hyderabad</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Pune">Pune</option>
+                    </select>
+                </div>
+                <div class="divider"></div>
+                <div class="search-field">
+                    <label>Property Type</label>
+                    <select id="type-select">
+                        <option value="All">All Types</option>
+                        <option value="Flat">Flats / Apartments</option>
+                        <option value="House">Independent Houses</option>
+                        <option value="Plot">Residential Plots</option>
+                    </select>
+                </div>
+                <div class="divider"></div>
+                <div class="search-field">
+                    <label>Max Budget</label>
+                    <select id="budget-select">
+                        <option value="All">Any Budget</option>
+                        <option value="5000000">Up to ₹50 Lacs</option>
+                        <option value="10000000">Up to ₹1 Crore</option>
+                        <option value="25000000">Up to ₹2.5 Crores</option>
+                        <option value="50000000">Up to ₹5 Crores</option>
+                        <option value="100000000">Up to ₹10 Crores</option>
+                    </select>
+                </div>
+                <button class="btn-search" id="search-btn">
+                    <i class="ri-search-line"></i> Search
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Properties Section -->
+    <section id="properties" class="properties-section">
+        <div class="section-header">
+            <h2>Featured Properties</h2>
+            <p>Handpicked real estate opportunities tailored for you.</p>
+        </div>
+        
+        <div class="properties-grid" id="properties-grid">
+            <!-- Property cards will be injected here via JS -->
+        </div>
+
+        <div id="no-results" class="no-results hidden">
+            <i class="ri-error-warning-line"></i>
+            <h3>No properties found</h3>
+            <p>Try adjusting your search filters.</p>
+            <button class="btn-secondary" id="reset-filters">Reset Filters</button>
+        </div>
+    </section>
+
+    <!-- Compare Drawer (Hidden by default) -->
+    <div id="compare-drawer" class="compare-drawer">
+        <div class="compare-header">
+            <h3><i class="ri-scales-3-line"></i> Compare Properties (<span id="compare-count">0</span>/3)</h3>
+            <div>
+                <button id="btn-compare-action" class="btn-primary btn-small" disabled>Compare Now</button>
+                <button id="btn-compare-close" class="btn-icon"><i class="ri-close-line"></i></button>
+            </div>
+        </div>
+        <div class="compare-items" id="compare-items-container">
+            <!-- Compare summary items injected here -->
+        </div>
+    </div>
+
+    <!-- Compare Modal Overlay -->
+    <div id="compare-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Property Comparison</h2>
+                <button id="btn-modal-close" class="btn-icon"><i class="ri-close-line"></i></button>
+            </div>
+            <div class="modal-body" id="compare-modal-body">
+                <!-- Side-by-side comparison injected here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3><i class="ri-building-4-fill"></i> India RealEstate Hub</h3>
+                <p>Your trusted partner in finding the perfect Indian home, offering a curated selection of premium properties.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p><i class="ri-map-pin-2-fill"></i> Cyber City, Gurugram, Haryana</p>
+                <p><i class="ri-phone-fill"></i> +91 98765 43210</p>
+                <p><i class="ri-mail-fill"></i> support@indiarealestatehub.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 India RealEstate Hub. All rights reserved. Designed for Indian Buyers.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
