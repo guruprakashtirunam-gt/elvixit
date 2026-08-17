@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Email Generator</title>
+    <meta name="description" content="Generate professional emails instantly with AI.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <main class="container">
+        <header>
+            <div class="logo-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            <h1>AI Email Generator</h1>
+            <p>Craft the perfect message in seconds.</p>
+        </header>
+
+        <div class="app-layout">
+            <section class="input-section glass-panel">
+                <form id="emailForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="emailType">Email Type</label>
+                            <div class="select-wrapper">
+                                <select id="emailType" name="emailType">
+                                    <option value="Leave Request">Leave Request</option>
+                                    <option value="Follow Up">Follow Up</option>
+                                    <option value="Meeting Request">Meeting Request</option>
+                                    <option value="Job Application">Job Application</option>
+                                    <option value="Thank You">Thank You</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <i class="fa-solid fa-chevron-down select-icon"></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient">Recipient</label>
+                            <div class="select-wrapper">
+                                <select id="recipient" name="recipient">
+                                    <option value="Manager">Manager</option>
+                                    <option value="Colleague">Colleague</option>
+                                    <option value="Client">Client</option>
+                                    <option value="Recruiter">Recruiter</option>
+                                    <option value="Professor">Professor</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <i class="fa-solid fa-chevron-down select-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="tone">Tone</label>
+                            <div class="select-wrapper">
+                                <select id="tone" name="tone">
+                                    <option value="Professional">Professional</option>
+                                    <option value="Casual">Casual</option>
+                                    <option value="Friendly">Friendly</option>
+                                    <option value="Formal">Formal</option>
+                                    <option value="Urgent">Urgent</option>
+                                </select>
+                                <i class="fa-solid fa-chevron-down select-icon"></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="length">Length</label>
+                            <div class="select-wrapper">
+                                <select id="length" name="length">
+                                    <option value="Short">Short</option>
+                                    <option value="Medium" selected>Medium</option>
+                                    <option value="Long">Long</option>
+                                </select>
+                                <i class="fa-solid fa-chevron-down select-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="additionalDetails">Additional Details</label>
+                        <textarea id="additionalDetails" name="additionalDetails" placeholder="E.g., Need leave for two days because of a family function." rows="4" required></textarea>
+                    </div>
+
+                    <button type="submit" id="generateBtn" class="btn-primary">
+                        <span>Generate Email</span>
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+            </section>
+
+            <section class="output-section glass-panel">
+                <div class="output-header">
+                    <h2>Generated Email</h2>
+                    <div class="actions">
+                        <button id="copyBtn" class="action-btn" title="Copy to Clipboard" disabled>
+                            <i class="fa-regular fa-copy"></i>
+                        </button>
+                        <button id="downloadBtn" class="action-btn" title="Download Text" disabled>
+                            <i class="fa-solid fa-download"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="loadingState" class="state-container hidden">
+                    <div class="spinner"></div>
+                    <p>Crafting your email...</p>
+                </div>
+
+                <div id="emptyState" class="state-container">
+                    <div class="empty-icon"><i class="fa-regular fa-envelope"></i></div>
+                    <p>Your generated email will appear here.</p>
+                </div>
+
+                <div id="resultState" class="state-container result-container hidden">
+                    <div class="result-group">
+                        <label>Subject</label>
+                        <input type="text" id="resultSubject" readonly>
+                    </div>
+                    <div class="result-group">
+                        <label>Body</label>
+                        <textarea id="resultBody" readonly rows="12"></textarea>
+                    </div>
+                </div>
+
+                <div id="errorState" class="state-container hidden">
+                    <div class="error-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                    <p id="errorMessage" class="error-text">An error occurred.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
